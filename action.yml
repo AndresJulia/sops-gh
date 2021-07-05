@@ -1,0 +1,12 @@
+name: 'Check for unencrypted secrets'
+description: 'Check for unencrypted secrets'
+inputs:
+  filename_pattern:  # id of input
+    description: 'Filename pattern storing secrets'
+    required: true
+    default: 'secret'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.filename_pattern }}
